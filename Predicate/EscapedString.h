@@ -140,7 +140,7 @@ public:
     inline bool contains(const char *a) const { return QByteArray::contains(a); }
     inline bool contains(const QByteArray &a) const { return QByteArray::contains(a); }
     inline bool contains(const EscapedString &s) const {
-        return  true;// TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!s.isValid() ? QByteArray::contains(s) : false;
+        return  s.isValid() ? QByteArray::contains(s) : false;
     }
     inline int count(char c) const { return QByteArray::count(c); }
     inline int count(const char *a) const { return QByteArray::count(a); }
