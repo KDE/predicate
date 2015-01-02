@@ -135,12 +135,12 @@ public:
     inline int lastIndexOf(const EscapedString &s, int from = 0) const {
         return s.isValid() ? QByteArray::lastIndexOf(s, from) : -1;
     }
-
-    inline QBool contains(char c) const { return QByteArray::contains(c); }
-    inline QBool contains(const char *a) const { return QByteArray::contains(a); }
-    inline QBool contains(const QByteArray &a) const { return QByteArray::contains(a); }
-    inline QBool contains(const EscapedString &s) const {
-        return s.isValid() ? QByteArray::contains(s) : QBool(false);
+//Take care about qbool conversions!!!!!!
+    inline bool contains(char c) const { return QByteArray::contains(c); }
+    inline bool contains(const char *a) const { return QByteArray::contains(a); }
+    inline bool contains(const QByteArray &a) const { return QByteArray::contains(a); }
+    inline bool contains(const EscapedString &s) const {
+        return  true;// TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!s.isValid() ? QByteArray::contains(s) : false;
     }
     inline int count(char c) const { return QByteArray::count(c); }
     inline int count(const char *a) const { return QByteArray::count(a); }

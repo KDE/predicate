@@ -44,7 +44,8 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QPointer>
-#include <QtXml>
+#include <QDomElement>
+//#include <QtXml>
 #include <QtDebug>
 
 /*! Version number of extended table schema.
@@ -336,7 +337,7 @@ bool Connection::connect()
     if (!(d->isConnected = drv_connect())) {
         m_result = Result(m_driver->isFileBased() ?
                     QObject::tr("Could not open \"%1\" project file.")
-                    .arg(QDir::convertSeparators(QFileInfo(d->connData.databaseName()).fileName()))
+                    .arg(QDir::toNativeSeparators(QFileInfo(d->connData.databaseName()).fileName()))
                  :  QObject::tr("Could not connect to \"%1\" database server.")
                     .arg(d->connData.serverInfoString()));
     }
@@ -469,19 +470,19 @@ bool Connection::databaseExists(const QString &dbName, bool ignoreErrors)
         if (!file.exists() || (!file.isFile() && !file.isSymLink())) {
             if (!ignoreErrors)
                 m_result = Result(ERR_OBJECT_NOT_FOUND, QObject::tr("The database file \"%1\" does not exist.")
-                                                        .arg(QDir::convertSeparators(QFileInfo(d->connData.databaseName()).fileName())));
+                                                        .arg(QDir::toNativeSeparators(QFileInfo(d->connData.databaseName()).fileName())));
             return false;
         }
         if (!file.isReadable()) {
             if (!ignoreErrors)
                 m_result = Result(ERR_ACCESS_RIGHTS, QObject::tr("Database file \"%1\" is not readable.")
-                                                     .arg(QDir::convertSeparators(QFileInfo(d->connData.databaseName()).fileName())));
+                                                     .arg(QDir::toNativeSeparators(QFileInfo(d->connData.databaseName()).fileName())));
             return false;
         }
         if (!d->readOnly && !file.isWritable()) {
             if (!ignoreErrors)
                 m_result = Result(ERR_ACCESS_RIGHTS, QObject::tr("Database file \"%1\" is not writable.")
-                                                     .arg(QDir::convertSeparators(QFileInfo(d->connData.databaseName()).fileName())));
+                                                     .arg(QDir::toNativeSeparators(QFileInfo(d->connData.databaseName()).fileName())));
             return false;
         }
         return true;

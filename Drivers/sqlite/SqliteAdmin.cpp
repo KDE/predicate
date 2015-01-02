@@ -40,13 +40,13 @@ bool SQLiteAdminTools::vacuum(const Predicate::ConnectionData& data, const QStri
     clearResult();
     Predicate::DriverManager manager;
     Predicate::Driver *drv = manager.driver(data.driverName());
-    QString title(QObject::tr("Could not compact database \"%1\".").arg(QDir::convertSeparators(databaseName)));
+    QString title(QObject::tr("Could not compact database \"%1\".").arg(QDir::toNativeSeparators(databaseName)));
     if (!drv) {
         m_result = Predicate::Result(title);
         return false;
     }
     QFileInfo file(databaseName);
-    SQLiteVacuum vacuum(QDir::convertSeparators(file.absoluteFilePath()));
+    SQLiteVacuum vacuum(QDir::toNativeSeparators(file.absoluteFilePath()));
     tristate result = vacuum.run();
     if (false == result) {
         m_result = Predicate::Result(title);

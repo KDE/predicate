@@ -137,7 +137,7 @@ tristate SQLiteVacuum::run()
     m_dlg->setLabelText(
         QLatin1String("<qt>") + tr("Compacting database \"%1\"...")
             .arg(QLatin1String("<nobr>")
-                 + QDir::convertSeparators(fi.fileName())
+                 + QDir::toNativeSeparators(fi.fileName())
                  + QLatin1String("</nobr>"))
     );
     m_dlg->adjustSize();

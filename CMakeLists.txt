@@ -1,10 +1,15 @@
 #set(CMAKE_DISABLE_SOURCE_CHANGES ON)
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.3)
 
 project( Predicate )
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
+SET(qt5CmakeDirectory /opt/Qt/5.3/gcc_64/lib/cmake/)
+#TODO requires setting qt5 dir
+set(Qt5Widgets_DIR ${qt5CmakeDirectory}/Qt5Widgets)
+set(Qt5Xml_DIR ${qt5CmakeDirectory}/Qt5Xml)
+set(Qt5Test_DIR ${qt5CmakeDirectory}Qt5Test)
 
 include(MacroEnsureOutOfSourceBuild)
 MACRO_ENSURE_OUT_OF_SOURCE_BUILD()
@@ -90,9 +95,14 @@ add_definitions(-DQT_USE_QSTRINGBUILDER -DQT_NO_CAST_TO_ASCII -DQT_NO_CAST_FROM_
 # Increase compatbility with Qt
 add_definitions(-DQT_NO_KEYWORD)
 
-#### Qt4 ####
-set(QT_MIN_VERSION 4.7.0)
-find_package(Qt4 REQUIRED)
+#### Qt5 ####find_package(Qt5 5.1.0 CONFIG REQUIRED Widgets Xml Sql)
+
+set(QT_MIN_VERSION 5.3.0)
+
+find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Core REQUIRED)
+find_package(Qt5Xml REQUIRED)
+find_package(Qt5Test REQUIRED)
 
 include_directories(
   ${Predicate_SOURCE_DIR}
@@ -108,7 +118,7 @@ include_directories(
 
 #### Subdirs ####
 add_subdirectory( Predicate )
-add_subdirectory( Drivers )
+#add_subdirectory( Drivers )
 
 simple_option(PREDICATE_UNFINISHED "Include unfinished features (useful for testing but may confuse end-user)" OFF)
 
@@ -122,7 +132,7 @@ if (BUILD_TESTING)
     set(CMAKE_C_FLAGS "-g -O0 -Wall -W -fprofile-arcs -ftest-coverage")
     set(CMAKE_EXE_LINKER_FLAGS "-fprofile-arcs -ftest-coverage")
   endif (BUILD_TEST_COVERAGE)
-  add_subdirectory( tests )
+ add_subdirectory( tests )
 else ()
   set(BUILD_TEST_COVERAGE OFF)
   simple_option(BUILD_TEST_COVERAGE "Building of test coverage (disabled because BUILD_TESTING is OFF)" OFF)

@@ -283,7 +283,7 @@ bool SQLiteConnection::drv_useDatabaseInternal(bool *cancelled,
                     futureTr("Do you want to open file \"%1\" as read-only?\n\n"
                         "The file is probably already open on this or another computer. "
                         "Could not gain exclusive access for writing the file.")
-                    .arg(QDir::convertSeparators(data()->databaseName())),
+                    .arg(QDir::toNativeSeparators(data()->databaseName())),
                     futureTr("Opening As Read-Only"),
                     MessageHandler::Continue,
                     MessageHandler::GuiItem()
@@ -352,7 +352,7 @@ bool SQLiteConnection::drv_dropDatabase(const QString &dbName)
                           QObject::tr("Could not remove file \"%1\". "
                              "Check the file's permissions and whether it is already "
                              "opened and locked by another application.")
-                   .arg(QDir::convertSeparators(filename)));
+                   .arg(QDir::toNativeSeparators(filename)));
         return false;
     }
     return true;
