@@ -43,23 +43,23 @@ set(BUILD_MYSQL_DB_DRIVER_DESC "MySQL database driver")
 macro_optional_find_package(MySQL)
 macro_log_feature(MYSQL_FOUND "libmysqlclient" "MySQL Client Library"
                   "http://www.mysql.com" FALSE "" "Required by ${BUILD_MYSQL_DB_DRIVER_DESC}")
-if(MYSQL_FOUND)
-   macro_optional_add_subdirectory(mysql)
-else()
-   add_feature_info(BUILD_MYSQL_DB_DRIVER FALSE "${BUILD_MYSQL_DB_DRIVER_DESC} (because MySQL Client Library not found)")
-endif(MYSQL_FOUND)
+#if(MYSQL_FOUND)
+#   macro_optional_add_subdirectory(mysql)
+#else()
+#   add_feature_info(BUILD_MYSQL_DB_DRIVER FALSE "${BUILD_MYSQL_DB_DRIVER_DESC} (because MySQL Client Library not found)")
+#endif(MYSQL_FOUND)
 
 # -----------------------
 
-set(BUILD_POSTGRESQL_DB_DRIVER_DESC "PostgreSQL database driver")
-macro_optional_find_package(PostgreSQL)
-macro_log_feature(POSTGRESQL_FOUND "libpq" "C API to PostgreSQL"
-                  "http://www.postgresql.org" FALSE "" "Required by ${BUILD_POSTGRESQL_DB_DRIVER_DESC}")
-if(POSTGRESQL_FOUND)
-   macro_optional_add_subdirectory(postgresql)
-else()
-   add_feature_info(BUILD_POSTGRESQL_DB_DRIVER FALSE "${BUILD_POSTGRESQL_DB_DRIVER_DESC} (because C API to PostgreSQL not found)")
-endif(POSTGRESQL_FOUND)
+#set(BUILD_POSTGRESQL_DB_DRIVER_DESC "PostgreSQL database driver")
+#macro_optional_find_package(PostgreSQL)
+#macro_log_feature(POSTGRESQL_FOUND "libpq" "C API to PostgreSQL"
+#                  "http://www.postgresql.org" FALSE "" "Required by ${BUILD_POSTGRESQL_DB_DRIVER_DESC}")
+#if(POSTGRESQL_FOUND)
+#   macro_optional_add_subdirectory(postgresql)
+#else()
+#   add_feature_info(BUILD_POSTGRESQL_DB_DRIVER FALSE "${BUILD_POSTGRESQL_DB_DRIVER_DESC} (because C API to PostgreSQL not found)")
+#endif(POSTGRESQL_FOUND)
 
 #macro_optional_find_package(FreeTDS)
 #macro_log_feature(FREETDS_FOUND "FreeTDS" "Open source implementation of the TDS (Tabular Data Stream) protocol"

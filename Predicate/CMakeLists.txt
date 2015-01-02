@@ -132,10 +132,7 @@ qt_wrap_cpp(predicate predicate_LIB_SRCS ${predicate_MOC_SRCS})
 
 add_library(predicate SHARED ${predicate_LIB_SRCS})
 target_link_libraries(predicate
-  Qt5::Core
-  Qt5::Widgets
-  Qt5::Xml
-  Qt5::Test
+  ${QTBasicLibs}
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
   ${QT_QTXML_LIBRARY}

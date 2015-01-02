@@ -3,6 +3,7 @@ add_library(predicate_sqlite_icu SHARED icu.c)
 include_directories(${ICU_INCLUDE_DIRS})
 
 target_link_libraries(predicate_sqlite_icu
+                      ${QTBasicLibs}
                       ${SQLITE_LIBRARIES}
                       ${ICU_LIBRARIES}
                       ${ICU_I18N_LIBRARIES}

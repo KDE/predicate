@@ -32,8 +32,8 @@
 #include <sqlite3.h>
 
 using namespace Predicate;
-
-EXPORT_PREDICATE_DRIVER(SQLiteDriver, sqlite)
+//TODO!!!!! Need to figure that out
+//EXPORT_PREDICATE_DRIVER(SQLiteDriver, sqlite)
 
 //! driver specific private data
 //! @internal

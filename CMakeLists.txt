@@ -103,6 +103,11 @@ find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Xml REQUIRED)
 find_package(Qt5Test REQUIRED)
+set (QTBasicLibs
+  Qt5::Core
+  Qt5::Widgets
+  Qt5::Xml
+  Qt5::Test)
 
 include_directories(
   ${Predicate_SOURCE_DIR}
@@ -118,7 +123,7 @@ include_directories(
 
 #### Subdirs ####
 add_subdirectory( Predicate )
-#add_subdirectory( Drivers )
+add_subdirectory( Drivers )
 
 simple_option(PREDICATE_UNFINISHED "Include unfinished features (useful for testing but may confuse end-user)" OFF)
 
