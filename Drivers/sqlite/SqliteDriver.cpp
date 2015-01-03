@@ -33,7 +33,7 @@
 
 using namespace Predicate;
 //TODO!!!!! Need to figure that out
-EXPORT_PREDICATE_DRIVER(SQLiteDriver, sqlite)
+//EXPORT_PREDICATE_DRIVER(SQLiteDriver, sqlite)
 
 //! driver specific private data
 //! @internal

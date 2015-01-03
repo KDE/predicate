@@ -278,7 +278,7 @@ public:
 //! The resulting library file should be named "predicate_{driverName}".
 //! Also exports driver's static version information.
 #define EXPORT_PREDICATE_DRIVER( driverClass, driverName ) \
-    Q_PLUGIN_METADATA(IDD predicate_ ## driverName FILE driverClass ) \
+    Q_DECLARE_INTERFACE(driverClass, predicate_ ## driverName) \
     Q_EXTERN_C Q_DECL_EXPORT const quint32 version_major = PREDICATE_VERSION_MAJOR; \
     Q_EXTERN_C Q_DECL_EXPORT const quint32 version_minor = PREDICATE_VERSION_MINOR; \
     Q_EXTERN_C Q_DECL_EXPORT const quint32 version_release = PREDICATE_VERSION_RELEASE; \

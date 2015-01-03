@@ -61,6 +61,7 @@ set(predicate_sqlite_SRCS
    SqlitePreparedStatement.cpp
    SqliteAdmin.cpp
    SqliteAlter.cpp
+   sqlite.json
 )
 
 set(predicate_sqlite_MOC_SRCS

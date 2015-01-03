@@ -32,6 +32,7 @@ class SQLiteDriverPrivate;
 class SQLiteDriver : public Driver
 {
     Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kde.Predicate.Driver" FILE "sqlite.json")
     PREDICATE_DRIVER
 
 public:
