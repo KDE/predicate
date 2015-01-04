@@ -9,7 +9,7 @@ SET(qt5CmakeDirectory /opt/Qt/5.3/gcc_64/lib/cmake/)
 #TODO requires setting qt5 dir
 set(Qt5Widgets_DIR ${qt5CmakeDirectory}/Qt5Widgets)
 set(Qt5Xml_DIR ${qt5CmakeDirectory}/Qt5Xml)
-set(Qt5Test_DIR ${qt5CmakeDirectory}Qt5Test)
+set(Qt5Test_DIR ${qt5CmakeDirectory}/Qt5Test)
 
 include(MacroEnsureOutOfSourceBuild)
 MACRO_ENSURE_OUT_OF_SOURCE_BUILD()
