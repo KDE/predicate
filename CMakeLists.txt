@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project( Predicate )
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
-SET(qt5CmakeDirectory /opt/Qt/5.3/gcc_64/lib/cmake/)
+set(qt5CmakeDirectory ~/Qt/5.3/clang_64/lib/cmake/)
 #TODO requires setting qt5 dir
 set(Qt5Widgets_DIR ${qt5CmakeDirectory}/Qt5Widgets)
 set(Qt5Xml_DIR ${qt5CmakeDirectory}/Qt5Xml)
@@ -90,7 +90,6 @@ macro(simple_option _NAME _DESCRIPTION _DEFAULT)
 endmacro(simple_option)
 
 # Qt string handling optimizations: http://qt-project.org/doc/qt-4.8/qstring.html#more-efficient-string-construction
-add_definitions(-DQT_USE_QSTRINGBUILDER -DQT_NO_CAST_TO_ASCII -DQT_NO_CAST_FROM_ASCII)
 
 # Increase compatbility with Qt
 add_definitions(-DQT_NO_KEYWORD)

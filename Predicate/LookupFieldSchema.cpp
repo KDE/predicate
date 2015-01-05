@@ -70,13 +70,6 @@ class LookupFieldSchemaStatic
 {
 public:
     LookupFieldSchemaStatic()
-     : typeNames((QString[]){
-            QString(), // no type
-            QLatin1String("table"),
-            QLatin1String("query"),
-            QLatin1String("sql"),
-            QLatin1String("valuelist"),
-            QLatin1String("fieldlist")})
     {
         typesForNames.insert(QLatin1String("table"), LookupFieldSchema::RecordSource::Table);
         typesForNames.insert(QLatin1String("query"), LookupFieldSchema::RecordSource::Query);
@@ -84,7 +77,13 @@ public:
         typesForNames.insert(QLatin1String("valuelist"), LookupFieldSchema::RecordSource::ValueList);
         typesForNames.insert(QLatin1String("fieldlist"), LookupFieldSchema::RecordSource::FieldList);
     }
-    const QString typeNames[6];
+    const QString typeNames[6] = {
+        QString(), // no type
+        QLatin1String("table"),
+        QLatin1String("query"),
+        QLatin1String("sql"),
+        QLatin1String("valuelist"),
+        QLatin1String("fieldlist")};
     QHash<QString, LookupFieldSchema::RecordSource::Type> typesForNames;
 };
 

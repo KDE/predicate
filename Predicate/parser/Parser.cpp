@@ -32,18 +32,17 @@ class ParserStatic
 {
 public:
     ParserStatic()
-     : operationStrings((QLatin1String[]){
-            QLatin1String("None"),
-            QLatin1String("Error"),
-            QLatin1String("CreateTable"),
-            QLatin1String("AlterTable"),
-            QLatin1String("Select"),
-            QLatin1String("Insert"),
-            QLatin1String("Update"),
-            QLatin1String("Delete")})
     {
     }
-    const QLatin1String operationStrings[8];
+    const QLatin1String operationStrings[8] = {
+    QLatin1String("None"),
+    QLatin1String("Error"),
+    QLatin1String("CreateTable"),
+    QLatin1String("AlterTable"),
+    QLatin1String("Select"),
+    QLatin1String("Insert"),
+    QLatin1String("Update"),
+    QLatin1String("Delete")};
 };
 
 PREDICATE_GLOBAL_STATIC(ParserStatic, Predicate_parserStatic)

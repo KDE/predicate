@@ -34,7 +34,8 @@
 #include <QMetaMethod>
 #include <QFont>
 #include <QFrame>
-
+#include <QDebug>
+#include <sys/stat.h>
 class QMetaProperty;
 
 namespace Predicate
